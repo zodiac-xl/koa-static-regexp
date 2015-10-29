@@ -32,19 +32,6 @@ function serve(root, opts) {
     opts.root = resolve(root);
     opts.index = opts.index || 'index.html';
 
-    if (!opts.defer) {
-        return function *serve(next) {
-            if (this.method == 'HEAD' || this.method == 'GET') {
-
-                if (!opts.regexp || (opts.regexp && new RegExp(opts.regexp.replace(/^\//,"").replace(/\/$/,"")).test(this.path))) {
-                    if (yield send(this, this.path, opts)) return;
-                }
-
-            }
-            yield* next;
-        };
-    }
-
 
     if (!opts.defer) {
         return function *serve(next){
