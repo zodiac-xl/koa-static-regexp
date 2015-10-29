@@ -3,15 +3,16 @@
   "description": "Static file serving middleware for koa",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koajs/static.git"
+    "url": "git+https://github.com/zodiac-xl/koa-static-regexp"
   },
-  "version": "1.5.1",
+  "version": "1.0.0",
   "keywords": [
     "koa",
     "middleware",
     "file",
     "static",
-    "sendfile"
+    "sendfile",
+    "regexp"
   ],
   "files": [
     "index.js"
@@ -32,62 +33,15 @@
     "test-cov": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "test-travis": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly"
   },
-  "gitHead": "aa212b9cf62f074dd5b62a4c43fd2a1a8db66a7b",
   "bugs": {
-    "url": "https://github.com/koajs/static/issues"
+    "url": "https://github.com/zodiac-xl/koa-static-regexp/issues"
   },
-  "homepage": "https://github.com/koajs/static#readme",
-  "_id": "koa-static@1.5.1",
-  "_shasum": "87f680705281ad5ce815e6ad2bfcfdd3ab9fc04c",
-  "_from": "koa-static@*",
-  "_npmVersion": "2.14.4",
-  "_nodeVersion": "4.1.1",
+  "homepage": "https://github.com/zodiac-xl/koa-static-regexp#readme",
+  "author": {
+    "name": "zodiac"
+  },
   "_npmUser": {
-    "name": "coderhaoxin",
-    "email": "coderhaoxin@outlook.com"
-  },
-  "maintainers": [
-    {
-      "name": "aheckmann",
-      "email": "aaron.heckmann+github@gmail.com"
-    },
-    {
-      "name": "coderhaoxin",
-      "email": "coderhaoxin@outlook.com"
-    },
-    {
-      "name": "dead_horse",
-      "email": "dead_horse@qq.com"
-    },
-    {
-      "name": "eivifj",
-      "email": "eivind.fjeldstad@gmail.com"
-    },
-    {
-      "name": "fengmk2",
-      "email": "fengmk2@gmail.com"
-    },
-    {
-      "name": "jonathanong",
-      "email": "jonathanrichardong@gmail.com"
-    },
-    {
-      "name": "jongleberry",
-      "email": "jonathanrichardong@gmail.com"
-    },
-    {
-      "name": "juliangruber",
-      "email": "julian@juliangruber.com"
-    },
-    {
-      "name": "tjholowaychuk",
-      "email": "tj@vision-media.ca"
-    }
-  ],
-  "dist": {
-    "shasum": "87f680705281ad5ce815e6ad2bfcfdd3ab9fc04c",
-    "tarball": "http://registry.npmjs.org/koa-static/-/koa-static-1.5.1.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/koa-static/-/koa-static-1.5.1.tgz"
+    "name": "wuxiaolong",
+    "email": "wxlgame0105@163.com"
+  }
 }
