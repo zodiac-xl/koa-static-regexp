@@ -1,0 +1,11 @@
+###模组
+node_modules
+
+###bower
+bower_components
+
+###工程
+.idea
+koa-static-regexp.iml
+
+.DS_Store
