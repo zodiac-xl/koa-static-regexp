@@ -31,13 +31,12 @@ function serve(root, opts) {
     debug('static "%s" %j', root, opts);
     opts.root = resolve(root);
     opts.index = opts.index || 'index.html';
-    console.log(opts);
 
     if (!opts.defer) {
         return function *serve(next) {
             if (this.method == 'HEAD' || this.method == 'GET') {
-                console.log(this.path);
-                if (!opts.regexp || (opts.regexp && new RegExp(opts.regexp).test(this.path))) {
+
+                if (!opts.regexp || (opts.regexp && new RegExp(opts.regexp.replace(/^\//,"").replace(/\/$/,"")).test(this.path))) {
                     if (yield send(this, this.path, opts)) return;
                 }
 
@@ -46,12 +45,27 @@ function serve(root, opts) {
         };
     }
 
-    return function *serve(next) {
+
+    if (!opts.defer) {
+        return function *serve(next){
+            if (this.method == 'HEAD' || this.method == 'GET') {
+                if (!opts.regexp || (opts.regexp && new RegExp(opts.regexp.replace(/^\//,"").replace(/\/$/,"")).test(this.path))) {
+                    if (yield send(this, this.path, opts)) return;
+                }
+            }
+            yield* next;
+        };
+    }
+
+    return function *serve(next){
         yield* next;
 
         if (this.method != 'HEAD' && this.method != 'GET') return;
         // response is already handled
         if (this.body != null || this.status != 404) return;
-        //yield send(this, this.path, opts);
+
+        if (!opts.regexp || (opts.regexp && new RegExp(opts.regexp.replace(/^\//,"").replace(/\/$/,"")).test(this.path))) {
+            yield send(this, this.path, opts);
+        }
     };
 }
